@@ -6,8 +6,8 @@
 /out-tsc
 .firebase/
 functions/lib/
-functions/candidate-report/
-functions/candidate-report-server/
+functions/dist/
+/public
 
 # dependencies
 node_modules

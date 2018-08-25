@@ -7,7 +7,6 @@ import * as express from 'express';
 const cors = require('cors')({origin: true});
 const cookieParser = require('cookie-parser')();
 import * as functions from 'firebase-functions';
-import {join} from 'path';
 // noinspection TsLint
 import 'reflect-metadata';
 // noinspection TsLint
@@ -29,11 +28,8 @@ const app = express();
 app.use(cors);
 app.use(cookieParser);
 
-const DIST_FOLDER = join(__dirname, '../candidate-report');
-const APP_NAME = 'candidate-report-server';
-
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require(`../${APP_NAME}/main`);
+const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require(`../dist/server/main`);
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
 app.engine('html', ngExpressEngine({
@@ -44,7 +40,7 @@ app.engine('html', ngExpressEngine({
 }));
 
 const index = require('fs')
-  .readFileSync(path.resolve(join(DIST_FOLDER, 'index.html')), 'utf8')
+  .readFileSync(path.resolve(__dirname, '../dist/browser/index.html'), 'utf8')
   .toString();
 
 app.get('**', function(req, res) {

@@ -1,6 +1,7 @@
 {
   "name": "candidate-report",
   "version": "0.0.0",
+  "LICENCE": "UNLICENSED",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

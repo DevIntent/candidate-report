@@ -43,7 +43,7 @@
                 }
               ],
               "optimization": true,
-              "outputHashing": "all",
+              "outputHashing": "none",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
@@ -106,7 +106,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/candidate-report-server",
+            "outputPath": "functions/candidate-report-server",
             "main": "src/main.server.ts",
             "tsConfig": "src/tsconfig.server.json"
           },

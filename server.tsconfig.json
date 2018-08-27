@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./functions/dist/node/",
+    "outDir": "./dist/node/",
     "sourceMap": true,
     "declaration": false,
     "module": "commonjs",

@@ -7,11 +7,12 @@
   "LICENCE": "UNLICENSED",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node dist/node/server.js",
     "start:ssr": "npm --prefix functions start",
     "build": "ng build",
     "deploy": "firebase deploy --only functions",
     "deploy-all": "firebase deploy",
+    "deploy-gae": "gcloud app deploy --project candidate-report",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

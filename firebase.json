@@ -11,10 +11,6 @@
     ],
     "rewrites": [
       {
-        "source": "**/*.@(css|js)",
-        "destination": "index2.html"
-      },
-      {
         "source": "**",
         "function": "ssr"
       }

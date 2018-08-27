@@ -1,6 +1,9 @@
 {
   "name": "candidate-report",
   "version": "0.0.0",
+  "engines": {
+    "node": "8"
+  },
   "LICENCE": "UNLICENSED",
   "scripts": {
     "ng": "ng",
@@ -12,12 +15,13 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve:node": "npm run compile:server && node functions/dist/node/server.js",
-    "build:node": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:ssr": "npm run build:client-and-server-bundles && npm run cp:public && npm run mv:index && npm --prefix functions run build",
+    "cp:dist": "cp -R functions/dist/browser dist/browser && cp -R functions/dist/server dist/server",
+    "serve:node": "npm run compile:server && node dist/node/server.js",
+    "build:node": "npm run build:client-and-server-bundles && npm run compile:server && npm run cp:dist",
+    "build:ssr": "npm run build:client-and-server-bundles && npm run cp:public && npm run rm:index && npm --prefix functions run build",
     "build:client-and-server-bundles": "ng build --prod && ng run candidate-report:server:production",
     "cp:public": "rm -Rf public/ && mkdir public/ && cp -Rf functions/dist/browser/ public/",
-    "mv:index": "mv public/index.html public/index2.html",
+    "rm:index": "rm public/index.html",
     "compile:server": "tsc -p server.tsconfig.json",
     "update": "npm-check -u -E"
   },
@@ -41,7 +45,11 @@
     "core-js": "^2.5.4",
     "express": "^4.15.2",
     "hammerjs": "^2.0.8",
+    "reflect-metadata": "^0.1.12",
     "rxjs": "^6.0.0",
+    "ws": "^6.0.0",
+    "xhr2": "^0.1.4",
+    "xmlhttprequest": "^1.8.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
@@ -63,11 +71,8 @@
     "karma-jasmine-html-reporter": "~1.3.1",
     "npm-check": "^5.8.0",
     "protractor": "~5.4.0",
-    "reflect-metadata": "^0.1.12",
     "ts-node": "7.0.1",
     "tslint": "5.11.0",
-    "typescript": "~2.8.4",
-    "ws": "^6.0.0",
-    "xmlhttprequest": "^1.8.0"
+    "typescript": "~2.8.4"
   }
 }

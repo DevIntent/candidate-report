@@ -50,6 +50,7 @@
     "ws": "6.0.0",
     "xhr2": "0.1.4",
     "xmlhttprequest": "1.8.0",
+    "yes-https": "git+https://github.com/DevIntent/yes-https.git",
     "zone.js": "0.8.26"
   },
   "devDependencies": {

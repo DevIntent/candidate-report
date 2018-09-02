@@ -8,6 +8,7 @@ import {ngExpressEngine} from '@nguniversal/express-engine';
 import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
 
 import * as express from 'express';
+import * as yesHttps from 'yes-https';
 import {join} from 'path';
 
 // Required for Firebase
@@ -25,6 +26,13 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist');
 const APP_NAME = 'candidate-report';
+
+// Configure GAE proxy and health checks. Force HTTPS.
+app.set('trust proxy', true);
+app.use(yesHttps({ maxAge: 31536000, includeSubdomains: true, preload: true }));
+app.get('/_ah/health', (req, res) => {
+  res.sendStatus(200);
+});
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require(`${DIST_FOLDER}/${APP_NAME}-server/main`);

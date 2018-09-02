@@ -11,12 +11,6 @@ database.rules.json
 firebase.json
 .idea/
 e2e/
-public/
-prerender.ts
-static-routes.ts
 tsconfig.json
 tslint.json
-functions/lib/
-functions/src/
-!dist/
-!functions/lib
+functions/

@@ -24,10 +24,10 @@ const app = express();
 
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist');
-const APP_DIR = 'browser';
+const APP_NAME = 'candidate-report';
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require(`${DIST_FOLDER}/server/main`);
+const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require(`${DIST_FOLDER}/${APP_NAME}-server/main`);
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
 app.engine('html', ngExpressEngine({
@@ -38,13 +38,13 @@ app.engine('html', ngExpressEngine({
 }));
 
 app.set('view engine', 'html');
-app.set('views', join(DIST_FOLDER, APP_DIR));
+app.set('views', join(DIST_FOLDER, APP_NAME));
 
 // Example Express Rest API endpoints
 // app.get('/api/**', (req, res) => { });
 
 // Serve static files from /browser
-app.get('*.*', express.static(join(DIST_FOLDER, APP_DIR), {
+app.get('*.*', express.static(join(DIST_FOLDER, APP_NAME), {
   maxAge: 600
 }));
 

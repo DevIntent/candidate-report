@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import 'zone.js/dist/zone-node';
 import {enableProdMode} from '@angular/core';
 import {NestFactory} from '@nestjs/core';
+import {NestExpressApplication} from '@nestjs/platform-express';
 import * as yesHttps from 'yes-https';
 import {ApplicationModule} from './app.module';
 
@@ -17,7 +18,7 @@ enableProdMode();
 const PORT = process.env.PORT || 4000;
 
 async function bootstrap() {
-  const app = await NestFactory.create(ApplicationModule);
+  const app = await NestFactory.create<NestExpressApplication>(ApplicationModule);
   app.enableCors({
     methods: 'GET',
     maxAge: 3600,

@@ -10,6 +10,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PreloadAllModules, RouterModule} from '@angular/router';
+import {ServiceWorkerModule} from '@angular/service-worker';
 import {Angulartics2Module} from 'angulartics2';
 import {environment} from '../environments/environment';
 import {AppRoutes} from './app-routes';
@@ -42,6 +43,10 @@ import {TopNavComponent} from './top-nav/top-nav.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirePerformanceModule,
     Angulartics2Module.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      registrationStrategy: 'registerWithDelay:5000'
+    }),
     MatToolbarModule,
     LayoutModule,
     MatButtonModule,

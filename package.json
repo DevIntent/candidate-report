@@ -1,6 +1,6 @@
 {
   "name": "candidate-report",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "engines": {
     "node": "10"
   },
@@ -37,7 +37,9 @@
     "@angular/platform-browser": "8.2.0",
     "@angular/platform-browser-dynamic": "8.2.0",
     "@angular/platform-server": "8.2.0",
+    "@angular/pwa": "^0.802.0",
     "@angular/router": "8.2.0",
+    "@angular/service-worker": "8.2.0",
     "@nestjs/common": "6.5.3",
     "@nestjs/core": "6.5.3",
     "@nestjs/ng-universal": "^2.0.0",

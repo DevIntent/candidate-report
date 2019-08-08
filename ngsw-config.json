@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/favicon.ico",
+          "/index.html",
+          "/*.css",
+          "/*.js"
+        ],
+        "urls": [
+          "https://lh6.googleusercontent.com/**/*",
+          "https://fonts.gstatic.com/s/**/*",
+          "https://fonts.googleapis.com/css*",
+          "https://fonts.googleapis.com/icon?family=Material+Icons",
+          "https://fonts.gstatic.com/s/materialicons/v48/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2",
+          "https://fonts.googleapis.com/css?family=Roboto:300,400,500",
+          "https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2",
+          "https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2",
+          "https://cdn.lr-ingest.io/logger.min.js"
+        ]
+      }
+    }, {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+        ]
+      }
+    }
+  ]
+}

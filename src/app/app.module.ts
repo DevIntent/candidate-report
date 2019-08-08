@@ -1,5 +1,7 @@
 import {LayoutModule} from '@angular/cdk/layout';
 import {NgModule} from '@angular/core';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirePerformanceModule} from '@angular/fire/performance';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
@@ -9,6 +11,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PreloadAllModules, RouterModule} from '@angular/router';
 import {Angulartics2Module} from 'angulartics2';
+import {environment} from '../environments/environment';
 import {AppRoutes} from './app-routes';
 import {AppComponent} from './app.component';
 import {FooterComponent} from './footer/footer.component';
@@ -36,6 +39,8 @@ import {TopNavComponent} from './top-nav/top-nav.component';
       relativeLinkResolution: 'corrected'
     }),
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirePerformanceModule,
     Angulartics2Module.forRoot(),
     MatToolbarModule,
     LayoutModule,

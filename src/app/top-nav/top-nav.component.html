@@ -1,0 +1,8 @@
+<mat-toolbar color="primary" class="mat-elevation-z1" role="banner">
+  <button type="button" aria-label="Toggle sidenav" mat-icon-button
+          (click)="navService.drawer.toggle()" *ngIf="navService.isHandset$ | async">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <img src="/assets/logo-white.svg" alt="Candidate Report Logo"
+       *ngIf="!(navService.isHandset$ | async)"><span>Candidate Report</span>
+</mat-toolbar>

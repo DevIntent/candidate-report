@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+               [disableClose]="!(navService.isHandset$ | async)"
+               [attr.role]="(navService.isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(navService.isHandset$ | async) ? 'over' : 'side'"
+               [opened]="!(navService.isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list (click)="onNavigation()">
+      <a mat-list-item [routerLink]="['']" routerLinkActive="active">
+        <mat-icon matListIcon>folder_shared</mat-icon>
+        Home
+      </a>
+      <a mat-list-item [routerLink]="['1']" routerLinkActive="active">
+        <mat-icon matListIcon>assignment_ind</mat-icon>
+        Candidate 1
+      </a>
+      <a mat-list-item [routerLink]="['2']" routerLinkActive="active">
+        <mat-icon matListIcon>assignment_ind</mat-icon>
+        Candidate 2
+      </a>
+      <a mat-list-item [routerLink]="['2']" routerLinkActive="active" >
+        <mat-icon matListIcon>assignment_ind</mat-icon>
+        Candidate 3
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <cr-top-nav></cr-top-nav>
+    <router-outlet></router-outlet>
+    <cr-footer></cr-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

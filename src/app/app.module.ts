@@ -37,7 +37,12 @@ import {TopNavComponent} from './top-nav/top-nav.component';
       preloadingStrategy: PreloadAllModules,
       scrollPositionRestoration: 'enabled',
       anchorScrolling: 'enabled',
-      relativeLinkResolution: 'corrected'
+      relativeLinkResolution: 'corrected',
+      // Recommended to reduce flicker. See the following
+      // https://github.com/angular/universal/issues/1200
+      // https://github.com/angular/universal/issues/1184
+      // https://github.com/angular/angular/issues/15716#issuecomment-302195906
+      initialNavigation: 'enabled'
     }),
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),

@@ -25,7 +25,8 @@
             "assets": [
               "src/assets",
               "src/robots.txt",
-              "src/sitemap.xml"
+              "src/sitemap.xml",
+              "src/apple-touch-icon.png"
             ],
             "styles": [
               {
@@ -102,7 +103,8 @@
             "assets": [
               "src/assets",
               "src/robots.txt",
-              "src/sitemap.xml"
+              "src/sitemap.xml",
+              "src/apple-touch-icon.png"
             ]
           }
         },

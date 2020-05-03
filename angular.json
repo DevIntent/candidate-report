@@ -168,5 +168,8 @@
       }
     }
   },
-  "defaultProject": "candidate-report"
+  "defaultProject": "candidate-report",
+  "cli": {
+    "analytics": "1d0fcf1c-7bef-46e7-a9b4-810f2f0ec8f0"
+  }
 }
